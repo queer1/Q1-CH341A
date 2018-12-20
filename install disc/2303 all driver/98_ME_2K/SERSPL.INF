@@ -1,0 +1,103 @@
+;	SERSPL.INF
+;	Copyright (c) 1999 Prolific Technology
+;
+;	09/13/2000
+
+[version]
+signature="$Windows 95$"
+Class=Ports
+ClassGUID={4d36e978-e325-11ce-bfc1-08002be10318}
+Provider=%Mfg%
+
+; [DestinationDirs]
+; SerialPort.Copy = 11    ; \windows\system
+
+; [SourceDiskFiles]
+; serport.vxd = 1
+
+; [SourceDisksNames]
+; 1="USB to Serial Disk #1","",1
+
+; Drivers
+;----------------------------------------------------------
+[Manufacturer]
+%Mfg%=USB2SERDevices
+
+[USB2SERDevices]
+%OURPORTDEVICE%=SerialPort, VID_067B&PID_2303
+
+; COM sections
+;----------------------------------------------------------
+
+[SerialPort]
+; CopyFiles=SerialPort.Copy
+AddReg=SerialPort.AddReg
+LogConfig=caa,c34,c3a,c43,c4a,c14,c1a,c23,c2a
+
+; [SerialPort.Copy]
+; SerPort.VXD
+
+[SerialPort.AddReg]
+HKR,,DevLoader,,*vcomm
+HKR,,Enumerator,,serenum.vxd
+HKR,,PortDriver,,serspl.vxd
+HKR,,USBDriver,,ser9pl.sys
+HKR,,Contention,,*vcd
+HKR,,ConfigDialog,,serialui.dll
+HKR,,DCB,3,1C,00,00,00, 00,C2,01,00, 15,20,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages,,"serialui.dll,EnumPropPages"
+
+[c34]			; COM3, IRQ4
+ConfigPriority=HARDRECONFIG
+IOConfig=3e8-3ef(3ff::)
+IRQConfig=S:4
+
+[c3a]			; COM3, any IRQ
+ConfigPriority=HARDRECONFIG
+IOConfig=3e8-3ef(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c43]			; COM4, IRQ3
+ConfigPriority=HARDRECONFIG
+IOConfig=2e8-2ef(3ff::)
+IRQConfig=S:3,5
+
+[c4a]			; COM4, any IRQ
+ConfigPriority=HARDRECONFIG
+IOConfig=2e8-2ef(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[caa]			; Any base, any IRQ
+ConfigPriority=HARDRECONFIG
+IOConfig=8@100-ffff%fff8(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c00]			; No resources
+ConfigPriority=HARDRECONFIG
+IOConfig=0
+IRQConfig=S:000-000(000::)
+
+[c14]			; COM1,IRQ4
+ConfigPriority=HARDRECONFIG
+IOConfig=3f8-3ff(3ff::)
+IRQConfig=S:4
+
+[c1a]			; COM1, any IRQ
+ConfigPriority=HARDRECONFIG
+IOConfig=3f8-3ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[c23]			; COM2, IRQ3
+ConfigPriority=HARDRECONFIG
+IOConfig=2f8-2ff(3ff::)
+IRQConfig=S:3
+
+[c2a]			; COM2, any IRQ
+ConfigPriority=HARDRECONFIG
+IOConfig=2f8-2ff(3ff::)
+IRQConfig=S:3,4,5,7,9,10,11,12,14,15
+
+[Strings]
+Mfg="PROLIFIC"
+OURPORTDEVICE="USB to Serial Port"

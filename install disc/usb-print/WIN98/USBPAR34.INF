@@ -1,0 +1,96 @@
+; USBPAR34.INF
+; Driver for (USB=>PARALLEL chip) V1.1
+; WDM&VXD for Windows 98
+; Copyright (C) W.ch 2001-2005
+;
+
+[Version]
+Signature = "$Chicago$"
+Class     = Ports
+ClassGuid = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider  = %WinChipHead%
+DriverVer = 12/29/2005, 1.1.2005.12
+
+[ControlFlags]
+;ExcludeFromSelect = USB\VID_4348&PID_5512
+ExcludeFromSelect = USB\VID_4348&PID_5584
+ExcludeFromSelect = USBPARPORT\PAR5512
+
+[Manufacturer]
+%WinChipHead% = WinChipHead
+
+[WinChipHead]
+;%USBPAR34.DeviceDesc% = USBPAR34_Install, USB\VID_4348&PID_5512
+%USBPRT34.DeviceDesc% = USBPAR34_Install, USB\VID_4348&PID_5584
+%USBPAR98.DeviceDesc% = USBPAR98_Install, USBPARPORT\PAR5512
+
+[USBPAR34_Install]
+CopyFiles = USBPAR34.CopyFiles.SYS
+AddReg    = USBPAR34.9X.AddReg
+
+[USBPAR34_Install.NT]
+CopyFiles = USBPAR34.NT.CopyFiles.SYS
+AddReg    = USBPAR34.NT.AddReg
+
+[USBPAR34_Install.NT.HW]
+AddReg    = USBPAR34.NT.HW.AddReg
+
+[USBPAR98_Install]
+CopyFiles = USBPAR98.CopyFiles.VXD, USBPAR34.CopyFiles.SYS
+AddReg    = USBPAR98.9X.AddReg
+
+[USBPAR98_Install.NT]
+
+[USBPAR34.CopyFiles.SYS]
+USBPAR98.SYS, , , 2
+
+[USBPAR34.NT.CopyFiles.SYS]
+USBPAR34.SYS, , , 2
+
+[USBPAR98.CopyFiles.VXD]
+USBPAR34.VXD, , , 2
+
+[USBPAR34.9X.AddReg]
+HKR, , DevLoader, , *NTKERN
+HKR, , NTMPDriver, , USBPAR98.SYS
+
+[USBPAR34.NT.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,ParallelPortPropPageProvider"
+
+[USBPAR34.NT.HW.AddReg]
+;HKR,,"UpperFilters",0x00010000,"lptenum"
+
+[USBPAR98.9X.AddReg]
+HKR, , DevLoader, , *vcomm
+HKR, , PortDriver, , USBPAR34.VXD
+HKR, , PortSubClass, 1, 00
+
+[USBPAR34_Install.NT.Services]
+AddService = USBPAR34, 2, USBPAR34.Service
+
+[USBPAR34.Service]
+DisplayName   = "USBPAR34"
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %10%\System32\Drivers\USBPAR34.SYS
+
+[DestinationDirs]
+DefaultDestDir      = 10, System32\Drivers
+USBPAR34.CopyFiles.SYS = 10, System32\Drivers
+USBPAR34.NT.CopyFiles.SYS = 10, System32\Drivers
+USBPAR98.CopyFiles.VXD = 11
+
+[SourceDisksFiles]
+USBPAR34.SYS  = 1
+USBPAR98.SYS  = 1
+USBPAR34.VXD  = 1
+
+[SourceDisksNames]
+1 = "USB Parallel Installation Disk", USBPAR34.INF, ,
+
+[Strings]
+WinChipHead      = "WCH"
+USBPAR34.DeviceDesc = "USB-PARALLEL"
+USBPRT34.DeviceDesc = "USB-PRINT"
+USBPAR98.DeviceDesc = "USB-PRINT"

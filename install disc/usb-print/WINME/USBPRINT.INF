@@ -1,0 +1,48 @@
+; USB=>Printer
+; Driver for Windows ME only
+
+[Version]
+Signature="$Chicago$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%MSFT%
+DriverVer=12/17/1999,4.90.3000.0
+;CatalogFile=print9x.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[DestinationDirs]
+DefaultDestDir = 10, system32\drivers
+USBPRINT_Inst.CopyFiles.SYS = 10, System32\Drivers
+USBPRINT_Inst.CopyFiles.DLL = 11
+
+[Manufacturer]
+%MSFT%=Microsoft
+
+[Microsoft]
+%USBPRINT.DeviceDesc% = USBPRINT_Inst,USB\Class_07,GENERIC_USB_PRINTER
+
+[USBPRINT_Inst]
+Copyfiles = USBPRINT_Inst.CopyFiles.SYS, USBPRINT_Inst.CopyFiles.DLL
+AddReg    = USBPRINT.AddReg
+
+[USBPRINT_Inst.CopyFiles.SYS]
+usbprint.sys, , , 16
+
+[USBPRINT_Inst.CopyFiles.DLL]
+usbmon.dll, , , 16
+
+[USBPRINT.AddReg]
+HKR, , DevLoader, , *NTKERN
+HKR, , NTMPDriver, , "usbprint.sys"
+
+[SourceDisksNames]
+1 = "USB Printing Install Disk", , ,""
+
+[SourceDisksFiles]
+usbprint.sys = 1
+
+[strings]
+MSFT                  = "Microsoft"
+USBPRINT.DeviceDesc   = "USB Printing Support"

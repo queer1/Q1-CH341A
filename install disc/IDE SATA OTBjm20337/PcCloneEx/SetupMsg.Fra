@@ -1,0 +1,33 @@
+20001	Echec Allocation Mémoire
+20002	Annuler !
+20003	Erreur Clef CD !
+20004	Impossible d'installer sur un Serveur Windows !
+20005	Impossible d'installer sur %s !
+20101	Bienvenue !
+20102	Désinstaller
+20103	Installer
+20104	Assistant d'Installation
+20105	Créer un raccourci sur le Bureau
+20106	Choisir un Dossier, puis Cliquer sur [Suivant >]
+20107	< Précédent
+20108	Suivant >
+20109	D'accord
+20110	Quitter
+20111	Saisir la Clef du CD :
+20112	Démarrer ce Programme au Démarrage
+20113	Parcourir
+20114	L'Installation se fera vers 
+20201	L'Installation n'est pas Terminée, Abandonner ?
+20202	Installation Terminée
+20203	%s Version %s déjà installée. Remplacer par cette Version %s ?
+20204	Copie de %s vers %s
+20205	Installation du Pilote %s
+20206	Création de l'Image %s
+20207	Création du raccourci
+20208	Retrait du Répertoire %s
+20209	Effacement %s
+20210	Ecriture du Registre
+20211	Suppression du Service %s
+20212	Une autre version est déjà installée, voulez-vous la remplacer ?
+20301	La Désinstallation n'est pas Terminée, Abandonner ?
+20302	Désinstallation Terminée

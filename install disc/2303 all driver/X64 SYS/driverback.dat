@@ -1,0 +1,25 @@
+[I_1]
+DriverDes=Prolific USB-to-Serial Comm Port
+ClassGuid=4d36e978-e325-11ce-bfc1-08002be10318
+Provider=Prolific
+Date=7-31-2007
+Version=3.2.0.0
+DevId=usb\vid_067b&pid_2303
+DeviceType=33
+digitalSigner=Microsoft Windows Hardware Compatibility Publisher
+InfPath=C:\Windows\inf\oem16.inf
+HardwareId=USB\VID_067B&PID_2303&REV_0300
+InstanceId=USB\VID_067B&PID_2303\6&1CA5021F&0&2
+SectionName=ComPort
+FileSize=102175
+[DriverFiles_1]
+C:\Windows\inf\oem16.inf=C:\Windows\inf\oem16.inf
+C:\Windows\inf\oem16.pnf=C:\Windows\inf\oem16.pnf
+C:\Windows\system32\DRIVERS\ser2pl.sys=C:\Windows\system32\DRIVERS\ser2pl.sys
+C:\Windows\system32\DRIVERS\ser2pl64.sys=C:\Windows\system32\DRIVERS\ser2pl64.sys
+[General]
+DriversCount=1
+DriversInfo=I_1
+OS=Windows 7
+Platform=64λ
+FileSize=102175

@@ -1,0 +1,47 @@
+[SETUP]
+APP_DELAY_TIME=5000
+
+[COPYFILES_32]
+SoftwareDriver\DLL\CM106.cpl>>>%WINDIR%\system\CM106.cpl
+SoftwareDriver\DLL\cm106eye.exe>>>%WINDIR%\system\cm106eye.exe
+SoftwareDriver\DLL\cmau106.dll>>>%WINDIR%\system\cmau106.dll
+SoftwareDriver\DLL\Vmix106.dll>>>%WINDIR%\Vmix106.dll
+oemicon\>>>%WINDIR%\
+
+[COPYFILES_64]
+SoftwareDriver\DLL\cmpa106.dll>>>%WINDIR%\syswow64\cmpa106.dll
+SoftwareDriver\DLL\CM106.cpl>>>%WINDIR%\syswow64\CM106.dll
+SoftwareDriver\DLL\CM10664.cpl>>>%WINDIR%\system32\CM106.cpl
+SoftwareDriver\DLL\cm106eye.exe>>>%WINDIR%\system\cm106eye.exe
+SoftwareDriver\DLL\cmau106.dll>>>%WINDIR%\system\cmau106.dll
+SoftwareDriver\DLL\Vmix106.dll>>>%WINDIR%\Vmix106.dll
+
+oemicon\>>>%WINDIR%\
+
+[POSTRUNAPP_INSTALL_32]
+%SETUPDIR%\Program\cmhotfix.exe -WAIT
+%SETUPDIR%\Program\CmEnhance.exe "%HARDWAREID%" -WAIT
+%SETUPDIR%\Program\CmElv.exe "%WINDIR%\system32\RunDll32.exe %WINDIR%\system\cm106.cpl,CMICtrlWnd"
+
+[POSTRUNAPP_INSTALL_64]
+%SETUPDIR%\Program\cmhotfix.exe -WAIT
+%SETUPDIR%\Program\CmEnhance.exe "%HARDWAREID%" -WAIT
+%SETUPDIR%\Program\CmElv64.exe "%WINDIR%\syswow64\RunDll32.exe %WINDIR%\Syswow64\cm106.dll,CMICtrlWnd"
+
+[ADDREG_32]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Control Panel\Cpls",Cm106cpl,,"%WINDIR%\System\cm106.cpl"
+
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Cm106Sound,,"RunDll32 cm106.cpl,CMICtrlWnd"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\C-Media CM106 Like Sound Driver",DisplayName,,"%OEMTITLE%"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\C-Media CM106 Like Sound Driver",DisplayIcon,,"%WINDIR%\Cmeau106.ico"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\C-Media CM106 Like Sound Driver",UninstallString,,"%WINDIR%\System32\Cmeau106.exe /rm /pusb106"
+
+[ADDREG_64]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Cm106Sound,,"%WINDIR%\syswow64\RunDll32.exe %WINDIR%\Syswow64\cm106.dll,CMICtrlWnd"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\C-Media CM106 Like Sound Driver",DisplayName,,"%OEMTITLE%"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\C-Media CM106 Like Sound Driver",DisplayIcon,,"%WINDIR%\Cmeau106.ico"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Uninstall\C-Media CM106 Like Sound Driver",UninstallString,,"%WINDIR%\System32\Cmeau106.exe /rm /pusb106"
+
+[ADDSTARTPROGRAM_32]
+
+[ADDSTARTPROGRAM_64]

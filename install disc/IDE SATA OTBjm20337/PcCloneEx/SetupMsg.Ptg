@@ -1,0 +1,35 @@
+20001	Falha na alocação de memória
+20002	Cancelar !
+20003	Erro de leitura da chave serial do CD
+20004	Não é possível instalar no servidor windows
+20005	Não é possível instalar em %s !
+20101	Bem vindo ao uso
+20102	desinstalar
+20103	instalar
+20104	Auxílio de instalação
+20105	Criar ícone na área de trabalho
+20106	selecionar a pasta e clique próximo
+20107	< anterior
+20108	próximo >
+20109	aceito
+20110	sair
+20111	por favor entre com a chave serial do CD
+20112	Inciar o programa após reinciar o computador
+20113	buscar
+20114	Instalação será feita em
+20115	Please double click %s icon to execute program.
+20201	Instalação não terminada , deseja parar ?
+20202	Instalação completa
+20203	%s Versão %s já instalada , substituir pela versão %s ?
+20204	Copiar %s para %s
+20205	Instalar driver %s
+20206	Criar imagem %s
+20207	Criar atalho
+20208	Remover pasta %s
+20209	deletar %s
+20210	Gravar registro
+20211	Deletar serviço %s
+20212	Outra versão já está instalada, deseja sbstituir ?
+20301	A desinstalação não foi terminada, deseja interromper ?
+20302	Desinstalação completa
+

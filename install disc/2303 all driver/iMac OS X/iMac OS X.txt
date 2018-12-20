@@ -1,0 +1,14 @@
+Q:  How do I uninstall the PL-2303 MAC X driver? 
+  
+A:  1. Open "Applications-> Utilities-> Terminal". You need to create ID & password first on NetInfo Manager.
+
+2. Login to root user and type "su" and enter password.
+
+3. Type "cd /System/Library/Extensions" to go to the "Extensions" folder.
+
+4. Unload the driver (if it had been loaded) by typing "kextunload PL2303.kext" or "kextunload 
+ProlificUsbSerial.kext".
+
+5. Remove the driver by typing "rm -r PL2303.kext" or "rm -r ProlificUsbSerial.kext".
+
+ 

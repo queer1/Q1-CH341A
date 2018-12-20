@@ -1,0 +1,28 @@
+[COPYFILES_32]
+Advance\DLL\CM106.cpl>>>%WINDIR%\system\CM106.cpl
+Advance\DLL\CM106rm.exe>>>%WINDIR%\system32\CM106rm.exe
+Advance\DLL\cmau106.dll>>>%WINDIR%\system\cmau106.dll
+CmiOemConfig.ini>>>%WINDIR%\system\Cm106.ini
+Advance\DLL\cm106eye.exe>>>%WINDIR%\system\cm106eye.exe
+
+[COPYFILES_64]
+Advance\DLL\cmpa106.dll>>>%WINDIR%\syswow64\cmpa106.dll
+Advance\DLL\CM106.cpl>>>%WINDIR%\syswow64\CM106.dll
+Advance\DLL\CM10664.cpl>>>%WINDIR%\system32\CM106.cpl
+Advance\DLL\CM106rm64.exe>>>%WINDIR%\syswow64\CM106rm.exe
+CmiOemConfig.ini>>>%WINDIR%\system\Cm106.ini
+Advance\DLL\cm106eye.exe>>>%WINDIR%\system\cm106eye.exe
+Advance\DLL\cmau106.dll>>>%WINDIR%\system\cmau106.dll
+
+[POSTRUNAPP_INSTALL_32]
+%WINDIR%\system32\rundll32.exe %WINDIR%\system\CM106.cpl,CMICtrlWnd
+
+[POSTRUNAPP_INSTALL_64]
+%WINDIR%\syswow64\rundll32.exe %WINDIR%\syswow64\CM106.dll,CMICtrlWnd
+
+[ADDREG_32]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Control Panel\Cpls",Cm106cpl,,"%WINDIR%\System\cm106.cpl"
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Cm106Sound,,"RunDll32 cm106.cpl,CMICtrlWnd"
+
+[ADDREG_64]
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Run",Cm106Sound,,"%WINDIR%\syswow64\RunDll32.exe %WINDIR%\Syswow64\cm106.dll,CMICtrlWnd"
